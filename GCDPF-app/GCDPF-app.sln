@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32407.343
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GCDPF-app", "GCDPF-app\GCDPF-app.csproj", "{CCAE85ED-2432-4D47-9778-62A151657424}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CCAE85ED-2432-4D47-9778-62A151657424}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCAE85ED-2432-4D47-9778-62A151657424}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCAE85ED-2432-4D47-9778-62A151657424}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCAE85ED-2432-4D47-9778-62A151657424}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A3EF5337-0048-4674-A868-E78053021B62}
+	EndGlobalSection
+EndGlobal
