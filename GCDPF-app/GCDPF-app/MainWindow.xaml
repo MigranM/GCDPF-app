@@ -5,8 +5,391 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GCDPF_app"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="600" Width="900" ResizeMode="CanMinimize">
+    <Grid x:Name="main_grid" Margin="0">
+        <Grid x:Name="eaf_grid" Margin="0,0,-0.4,0.4">
+            <Label x:Name="eaf_title_label" Content="EAF" HorizontalAlignment="Left" Margin="50,41,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="60" FontWeight="Bold" Foreground="#FF636363"/>
+            <Button x:Name="eaf_menu_button" HorizontalAlignment="Center" Margin="0,58,0,0" VerticalAlignment="Top" Width="auto" Height="auto" Style="{DynamicResource  key3}" Click="eaf_menu_button_Click" IsTabStop="False"/>
 
+            <TextBox x:Name="eaf_a_textbox" HorizontalAlignment="Left" Margin="50,133,0,0" VerticalAlignment="Top" Width="450" BorderThickness="2" FontFamily="Courier New" FontSize="20"  Height="42" TextChanged="eaf_a_textbox_TextChanged" IsTabStop="False" />
+            <Label x:Name="eaf_a_label" Content="polinom A" HorizontalAlignment="Left" Margin="66,120,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="15" Background="White" Foreground="#FFABADB3" FontWeight="Bold"/>
+
+            <TextBox x:Name="eaf_b_textbox" HorizontalAlignment="Left" Margin="50,208,0,0" VerticalAlignment="Top" Width="450" BorderThickness="2" FontFamily="Courier New" FontSize="20"  Height="42" TextChanged="eaf_b_textbox_TextChanged" IsTabStop="False"/>
+            <Label x:Name="eaf_b_label" Content="polinom B" HorizontalAlignment="Left" Margin="66,195,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="15" Background="White" Foreground="#FFABADB3" FontWeight="Bold"/>
+
+            <TextBox x:Name="eaf_field_textbox" HorizontalAlignment="Left" Margin="50,283,0,0" VerticalAlignment="Top" Width="200" BorderThickness="2" FontFamily="Courier New" FontSize="20"  Height="42" TextChanged="eaf_field_textbox_TextChanged" IsTabStop="False"/>
+            <Label x:Name="eaf_field_label" Content="field" HorizontalAlignment="Left" Margin="66,269,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="15" Background="White" Foreground="#FFABADB3" FontWeight="Bold"/>
+
+            <Label x:Name="eaf_info_label" Content="EAF - Euclide algorithm in field&#xD;&#xA;[Алгоритм Евклида в конечном поле]&#xD;&#xA;Это алгоритм просчитывающий НОД для&#xD;&#xA;двух полиномов по модулю вычетов&#xD;&#xA;указанном в поле &quot;field&quot;&#xD;&#xA;" HorizontalAlignment="Left" Margin="345,283,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="20" RenderTransformOrigin="0.496,0.517" Height="185" Width="450" Foreground="#FF636363"/>
+            <!--here!!!!!!!!!!-->
+            <Button x:Name="eaf_calculate_button" Content="Find" HorizontalAlignment="Left" Margin="50,503,0,0" VerticalAlignment="Top" Background="#FF636363" BorderBrush="#FF111111" FontFamily="Courier New" FontSize="25" Width="200" Padding="1,3" Height="42" Foreground="#FFDDDDDD" FontWeight="Bold" Style="{DynamicResource key1}" Click="eaf_calculate_button_Click" IsTabStop="False"/>
+            <!--here!!!!!!!!!!-->
+
+            <TextBox x:Name="eaf_result_textbox"  HorizontalAlignment="Left" Margin="345,503,0,0" VerticalAlignment="Top" Width="500" BorderThickness="2" FontFamily="Courier New" FontSize="20"  Height="42" IsReadOnly="True" IsTabStop="False"/>
+            <Label x:Name="eaf_result_label" Content="result" HorizontalAlignment="Left" Margin="361,490,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="15" Background="White" Foreground="#FFABADB3" FontWeight="Bold"/>
+
+        </Grid>
+        <Grid x:Name="eeaf_grid" Margin="900,0,-900,0" Background="White">
+            <Label x:Name="eeaf_title_label" Content="EEAF" HorizontalAlignment="Left" Margin="50,40,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="60" FontWeight="Bold" Foreground="#FF636363"/>
+
+            <Button x:Name="eeaf_menu_button" HorizontalAlignment="Center" Margin="0,58,0,0" VerticalAlignment="Top" Width="auto" Height="auto" Style="{DynamicResource  key3}" Click="eeaf_menu_button_Click" IsTabStop="False"/>
+
+            <Label x:Name="eeaf_info_label_1" Content="EEAF - extended Euclide&#xD;&#xA;algorithm in field&#xD;&#xA;[Расширенный алгоритм &#xD;&#xA;Евклида в конечном поле]&#xD;&#xA;Этот алгоритм как и EAF&#xD;&#xA;находит не только НОД&#xD;&#xA;полиномов, но и коэфф-ты&#xD;&#xA;для соотношения Безу " HorizontalAlignment="Left" Margin="544,120,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="20" Height="205" Width="315" Foreground="#FF636363"/>
+            <Label x:Name="eeaf_info_label_2" Content="Полином X - коэфф-т&#xD;&#xA;для полинома A,&#xD;&#xA;полином Y - коэфф-т&#xD;&#xA;для полинома B:&#xD;&#xA;A*X + B*Y = result" HorizontalAlignment="Left" Margin="50,340,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="20" Height="130" Width="266" Foreground="#FF636363"/>
+
+            <TextBox x:Name="eeaf_a_textbox" HorizontalAlignment="Left" Margin="50,133,0,0" VerticalAlignment="Top" Width="450" BorderThickness="2" FontFamily="Courier New" FontSize="20"  Height="42" TextChanged="eeaf_a_textbox_TextChanged" IsTabStop="False"/>
+            <Label x:Name="eeaf_a_label" Content="polinom A" HorizontalAlignment="Left" Margin="66,120,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="15" Background="White" Foreground="#FFABADB3" FontWeight="Bold"/>
+
+            <TextBox x:Name="eeaf_b_textbox" HorizontalAlignment="Left" Margin="50,208,0,0" VerticalAlignment="Top" Width="450" BorderThickness="2" FontFamily="Courier New" FontSize="20"  Height="42" TextChanged="eeaf_b_textbox_TextChanged" IsTabStop="False"/>
+            <Label x:Name="eeaf_b_label" Content="polinom B" HorizontalAlignment="Left" Margin="66,195,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="15" Background="White" Foreground="#FFABADB3" FontWeight="Bold"/>
+
+            <TextBox x:Name="eeaf_field_textbox" HorizontalAlignment="Left" Margin="50,283,0,0" VerticalAlignment="Top" Width="200" BorderThickness="2" FontFamily="Courier New" FontSize="20"  Height="42" TextChanged="eeaf_field_textbox_TextChanged" IsTabStop="False"/>
+            <Label x:Name="eeaf_field_label" Content="field" HorizontalAlignment="Left" Margin="66,269,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="15" Background="White" Foreground="#FFABADB3" FontWeight="Bold"/>
+
+            <TextBox x:Name="eeaf_x_textbox" HorizontalAlignment="Left" Margin="345,353,0,0" VerticalAlignment="Top" Width="514" BorderThickness="2" FontFamily="Courier New" FontSize="20"  Height="42" IsReadOnly="True" IsTabStop="False"/>
+            <Label x:Name="eeaf_x_label" Content="polinom X" HorizontalAlignment="Left" Margin="361,340,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="15" Background="White" Foreground="#FFABADB3" FontWeight="Bold"/>
+
+            <TextBox x:Name="eeaf_y_textbox" HorizontalAlignment="Left" Margin="345,428,0,0" VerticalAlignment="Top" Width="514" BorderThickness="2" FontFamily="Courier New" FontSize="20"  Height="42" IsReadOnly="True" IsTabStop="False"/>
+            <Label x:Name="eeaf_y_label" Content="polinom Y" HorizontalAlignment="Left" Margin="361,415,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="15" Background="White" Foreground="#FFABADB3" FontWeight="Bold"/>
+
+            <TextBox x:Name="eeaf_result_textbox" HorizontalAlignment="Left" Margin="345,503,0,0" VerticalAlignment="Top" Width="500" BorderThickness="2" FontFamily="Courier New" FontSize="20"  Height="42" IsReadOnly="True" IsTabStop="False"/>
+            <Label x:Name="eeaf_result_label" Content="result" HorizontalAlignment="Left" Margin="361,490,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="15" Background="White" Foreground="#FFABADB3" FontWeight="Bold"/>
+
+            <Button x:Name="eeaf_calculate_button" Content="Find" HorizontalAlignment="Left" Margin="50,503,0,0" VerticalAlignment="Top" Background="#FF636363" FontFamily="Courier New" FontSize="25" Width="200" Padding="1,3" Height="42" FontWeight="Bold" Style="{DynamicResource key1}" Click="eeaf_calculate_button_Click" IsTabStop="False"/>
+
+        </Grid>
+
+        <Grid x:Name="menu_grid" Margin="1800,0,-1800,0" Background="#FF111111">
+            <Button x:Name="menu_exit_button" Content="×" HorizontalAlignment="Center" Margin="0,58,0,0" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="#FF111111" FontFamily="Courier New" FontSize="60" Width="Auto" Padding="0" Foreground="White" Click="menu_exit_button_Click" Style="{DynamicResource key2}" Height="Auto" IsTabStop="False"/>
+
+            <Button x:Name="menu_eaf_button" Style="{DynamicResource Stylekey1}" Content="EAF" HorizontalAlignment="Left" Margin="130,180,0,0" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="#FFE8E8E8" FontFamily="Courier New" FontSize="25"  Padding="1,3" Width="300" Height="100" Foreground="White" Click="menu_eaf_button_Click" BorderThickness="2" IsTabStop="False"/>
+            <Button x:Name="menu_eeaf_button" Style="{DynamicResource Stylekey1}" Content="EEAF" HorizontalAlignment="Left" Margin="470,180,0,0" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="#FFE8E8E8" FontFamily="Courier New" FontSize="25" Width="300" Padding="1,3" Click="menu_eeaf_button_Click" Height="100" Foreground="White" BorderThickness="2" IsTabStop="False"/>
+            <Button x:Name="menu_materials_button" Style="{DynamicResource Stylekey2}" Content="Materials" HorizontalAlignment="Left" Margin="130,320,0,0" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="#FFE8E8E8" FontFamily="Courier New" FontSize="25" Width="300" Padding="1,3" Height="100" Foreground="White" Click="menu_materials_button_Click" BorderThickness="2" IsTabStop="False"/>
+            <Button x:Name="menu_authors_button" Style="{DynamicResource Stylekey2}" Content="Authors" HorizontalAlignment="Left" Margin="470,320,0,0" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="#FFE8E8E8" FontFamily="Courier New" FontSize="25" Width="300" Padding="1,3" Height="100" Foreground="White" Click="menu_authors_button_Click" BorderThickness="2" IsTabStop="False"/>
+
+        </Grid>
+
+        <Grid x:Name="authors_grid" Margin="2700,0,-2700,0" Background="#FF111111">
+            <Button x:Name="authors_menu_button" HorizontalAlignment="Center" Margin="0,58,0,0" VerticalAlignment="Top" Width="auto" Height="auto" Style="{DynamicResource  key4}" Click="authors_menu_button_Click" IsTabStop="False"/>
+
+            <Label x:Name="authors_title_label" Content="Authors" HorizontalAlignment="Center" Margin="315,128,315.4,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="60" FontWeight="Bold" Background="{x:Null}" Foreground="White" Padding="0"/>
+
+            <Label x:Name="authors_info_label" Content="Mardrosyan Migran Sarkisovich" HorizontalAlignment="Center" Margin="0,250,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="25" RenderTransformOrigin="0.496,0.517" Foreground="White"/>
+            <Label x:Name="authors_info_label_1" Content="Mcrtchan Maxim Gariginovich" HorizontalAlignment="Center" Margin="0,320,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="25" RenderTransformOrigin="0.496,0.517" Foreground="White"/>
+            <Label x:Name="authors_info_label_2" Content="Popkov Ilya Alexandrovich" HorizontalAlignment="Center" Margin="240,390,241.6,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="25" RenderTransformOrigin="0.496,0.517" Foreground="White"/>
+        </Grid>
+
+        <Grid x:Name="materials_grid" Margin="3600,0,-3600,0" Background="#FF111111">
+            <Button x:Name="materials_menu_button" HorizontalAlignment="Center" Margin="0,58,0,0" VerticalAlignment="Top" Width="auto" Height="auto" Style="{DynamicResource  key4}" Click="materias_menu_button_Click" IsTabStop="False"/>
+
+            <Label x:Name="materials_title_label" Content="Materials" HorizontalAlignment="Center" Margin="0,128,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="60" FontWeight="Bold" Background="{x:Null}" Foreground="White"/>
+            <ScrollViewer VerticalScrollBarVisibility="Hidden" Margin="41,211,46,10">
+                <Label FontFamily="Courier New" FontSize="25" Foreground="White"></Label>
+            </ScrollViewer>
+        </Grid>
     </Grid>
+
+
+
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="Stylekey1">
+            <Setter Property="SnapsToDevicePixels" Value="True" />
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="Width" Value="150" />
+            <Setter Property="Height" Value="50" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border 
+                                x:Name="Border">
+
+                            <TextBlock.Foreground>
+                                <SolidColorBrush Color="#ffffff"/>
+                            </TextBlock.Foreground>
+
+                            <Border.BorderThickness>
+                                <Thickness Bottom="2" Left="2" Top="2" Right="2"/>
+                            </Border.BorderThickness>
+
+                            <Border.BorderBrush>
+                                <SolidColorBrush Color="#ffffff"/>
+                            </Border.BorderBrush>
+
+                            <Border.Background>
+                                <SolidColorBrush Color="Transparent"/>
+                            </Border.Background>
+
+                            <VisualStateManager.VisualStateGroups>
+
+                                <!--Контейнер для групп событий-->
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualStateGroup.Transitions>
+                                        <!--Контейнер таймингов переходов-->
+                                        <VisualTransition GeneratedDuration="0" />
+                                        <!--Стандартный переход из состояния в состояние-->
+                                        <VisualTransition GeneratedDuration="0" To="Pressed" />
+                                        <!--Переход при нажатии-->
+                                    </VisualStateGroup.Transitions>
+
+                                    <VisualState x:Name="MouseOver">
+                                        <Storyboard>
+                                            <ColorAnimationUsingKeyFrames 
+                                                Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+                                                Storyboard.TargetName="Border">
+                                                <EasingColorKeyFrame KeyTime="0" Value="#3af79f"/>
+
+                                            </ColorAnimationUsingKeyFrames>
+
+                                            <ColorAnimationUsingKeyFrames
+                                                Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
+                                                Storyboard.TargetName="Border">
+                                                <EasingColorKeyFrame KeyTime="0" Value="Transparent"/>
+                                            </ColorAnimationUsingKeyFrames>
+
+                                            <ColorAnimationUsingKeyFrames
+                                                Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)"
+                                                Storyboard.TargetName="Border">
+                                                <EasingColorKeyFrame KeyTime="0" Value="#111111"/>
+                                            </ColorAnimationUsingKeyFrames>
+
+                                        </Storyboard>
+                                    </VisualState>
+
+                                    <VisualState x:Name="Normal"/>
+
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <Style TargetType="Button" x:Key="Stylekey2">
+            <Setter Property="SnapsToDevicePixels" Value="True" />
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="Width" Value="150" />
+            <Setter Property="Height" Value="50" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border 
+                                x:Name="Border">
+
+                            <TextBlock.Foreground>
+                                <SolidColorBrush Color="#ffffff"/>
+                            </TextBlock.Foreground>
+
+                            <Border.BorderThickness>
+                                <Thickness Bottom="2" Left="2" Top="2" Right="2"/>
+                            </Border.BorderThickness>
+
+                            <Border.BorderBrush>
+                                <SolidColorBrush Color="#ffffff"/>
+                            </Border.BorderBrush>
+
+                            <Border.Background>
+                                <SolidColorBrush Color="Transparent"/>
+                            </Border.Background>
+
+                            <VisualStateManager.VisualStateGroups>
+
+                                <!--Контейнер для групп событий-->
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualStateGroup.Transitions>
+                                        <!--Контейнер таймингов переходов-->
+                                        <VisualTransition GeneratedDuration="0" />
+                                        <!--Стандартный переход из состояния в состояние-->
+                                        <VisualTransition GeneratedDuration="0" To="Pressed" />
+                                        <!--Переход при нажатии-->
+                                    </VisualStateGroup.Transitions>
+
+                                    <VisualState x:Name="MouseOver">
+                                        <Storyboard>
+                                            <ColorAnimationUsingKeyFrames 
+                                                Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+                                                Storyboard.TargetName="Border">
+                                                <EasingColorKeyFrame KeyTime="0" Value="#ffffff"/>
+
+                                            </ColorAnimationUsingKeyFrames>
+
+                                            <ColorAnimationUsingKeyFrames
+                                                Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
+                                                Storyboard.TargetName="Border">
+                                                <EasingColorKeyFrame KeyTime="0" Value="Transparent"/>
+                                            </ColorAnimationUsingKeyFrames>
+
+                                            <ColorAnimationUsingKeyFrames
+                                                Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)"
+                                                Storyboard.TargetName="Border">
+                                                <EasingColorKeyFrame KeyTime="0" Value="#111111"/>
+                                            </ColorAnimationUsingKeyFrames>
+
+                                        </Storyboard>
+                                    </VisualState>
+
+                                    <VisualState x:Name="Normal"/>
+
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="SnapsToDevicePixels" Value="True" />
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="KeyboardNavigation.TabNavigation" Value="None" />
+            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+            <Setter Property="Foreground" Value="#FF636363"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBoxBase}">
+                        <Border Name="Border" Padding= "12 12 0 2" BorderThickness="2">
+                            <Border.BorderBrush>
+                                <SolidColorBrush Color="#FFABADB3" />
+                            </Border.BorderBrush>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal" />
+                                    <VisualState x:Name="Disabled"/>
+                                    <VisualState x:Name="ReadOnly"/>
+                                    <VisualState x:Name="MouseOver" />
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+
+                            <ScrollViewer Margin="0" x:Name="PART_ContentHost" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <Style TargetType="Button" x:Key="key1">
+            <Setter Property="SnapsToDevicePixels" Value="True" />
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="Border">
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="8" Color="Transparent" Direction="0" ShadowDepth="0"/>
+                            </Border.Effect>
+                            <Border.Background>
+                                <SolidColorBrush Color="#FF636363"/>
+                            </Border.Background>
+                            <TextBlock.Foreground>
+                                <SolidColorBrush Color="#FFDDDDDD"/>
+                            </TextBlock.Foreground>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualStateGroup.Transitions>
+                                        <!--Контейнер таймингов переходов-->
+                                        <VisualTransition GeneratedDuration="0:0:0.05" />
+                                        <!--Стандартный переход из состояния в состояние-->
+                                        <VisualTransition GeneratedDuration="0" To="Pressed" />
+                                        <!--Переход при нажатии-->
+                                    </VisualStateGroup.Transitions>
+
+                                    <VisualState x:Name="Normal" />
+                                    <VisualState x:Name="MouseOver">
+
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+        </Style>
+
+
+
+        <Style TargetType="Button" x:Key="key2">
+            <Setter Property="SnapsToDevicePixels" Value="True" />
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="Width" Value="48"/>
+            <Setter Property="Height" Value="48"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Canvas Width="48" Height="48" x:Name="btnBelep" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <Rectangle x:Name="rec" Fill="Transparent" Height="48" Width="48" Canvas.Top="0" Canvas.Left="0"/>
+
+                            <Polygon Canvas.Top="0" Canvas.Left="0" Points="20.35 4.35 19.65 3.65 12 11.29 4.35 3.65 3.65 4.35 11.29 12 3.65 19.65 4.35 20.35 12 12.71 19.65 20.35 20.35 19.65 12.71 12 20.35 4.35" Fill="#ffffffff">
+                                <Polygon.RenderTransform>
+                                    <ScaleTransform ScaleX="2" ScaleY="2"></ScaleTransform>
+                                </Polygon.RenderTransform>
+                            </Polygon>
+                        </Canvas>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+        </Style>
+        <Style TargetType="Button" x:Key="key3">
+            <Setter Property="SnapsToDevicePixels" Value="True" />
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="Width" Value="48"/>
+            <Setter Property="Height" Value="48"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Canvas Width="48" Height="48" x:Name="btnBelep" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <Rectangle x:Name="rec" Fill="Transparent" Height="48" Width="48" Canvas.Top="0" Canvas.Left="0"/>
+                            <Rectangle x:Name="rec1" Fill="#FF636363" Height="2" Width="30" Canvas.Top="11" Canvas.Left="9"/>
+                            <Rectangle x:Name="rec2" Fill="#FF636363" Height="2" Width="30" Canvas.Top="23" Canvas.Left="9"/>
+                            <Rectangle x:Name="rec3" Fill="#FF636363" Height="2" Width="30" Canvas.Top="35" Canvas.Left="9"/>
+
+                        </Canvas>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+        </Style>
+
+
+
+        <Style TargetType="Button" x:Key="key4">
+            <Setter Property="SnapsToDevicePixels" Value="True" />
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="Width" Value="48"/>
+            <Setter Property="Height" Value="48"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Canvas Width="48" Height="48" x:Name="btnBelep" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <Rectangle x:Name="rec" Fill="Transparent" Height="48" Width="48" Canvas.Top="0" Canvas.Left="0"/>
+                            <Rectangle x:Name="rec1" Fill="White" Height="2" Width="30" Canvas.Top="11" Canvas.Left="9"/>
+                            <Rectangle x:Name="rec2" Fill="White" Height="2" Width="30" Canvas.Top="23" Canvas.Left="9"/>
+                            <Rectangle x:Name="rec3" Fill="White" Height="2" Width="30" Canvas.Top="35" Canvas.Left="9"/>
+
+                        </Canvas>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+        </Style>
+
+
+
+
+    </Window.Resources>
+
+
+
+    
 </Window>

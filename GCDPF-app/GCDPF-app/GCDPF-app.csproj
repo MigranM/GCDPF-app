@@ -4,8 +4,15 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
     <RootNamespace>GCDPF_app</RootNamespace>
-    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
     <UseWPF>true</UseWPF>
+    <BaseOutputPath>Build\</BaseOutputPath>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="GCDPF">
+      <HintPath>GCDPF.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 
 </Project>
